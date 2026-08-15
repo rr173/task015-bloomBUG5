@@ -116,7 +116,7 @@ func (f *Filter) positions(item string) []uint64 {
 	h1 %= m
 	h2 %= m
 	pos := make([]uint64, f.k)
-	acc := h1 + h2
+	acc := h1
 	for i := uint64(0); i < f.k; i++ {
 		pos[i] = acc % m
 		acc += h2 // 累加 h2 等价于 (h1 + i·h2) mod m；m 受容量约束远小于 2^64，不会溢出
